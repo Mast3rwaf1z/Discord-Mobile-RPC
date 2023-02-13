@@ -10,13 +10,35 @@
 # | Step #5 | python run.py                |
 # +---------+------------------------------+
 
-import rpc
+import os
+import Discord
+import Arcaea
+import ProjectSekai
+import time
+
+def getGame():
+    game = None
+    while game is None:
+        status = os.popen("adb shell dumpsys window | grep mCurrentFocus").read()
+        match status.split("u0 ")[1].split("/")[0]:
+            case Arcaea.Arcaea.name:
+                game = Arcaea.Arcaea()
+                break
+            case ProjectSekai.ProjectSekai.name:
+                game = ProjectSekai.ProjectSekai()
+                break
+        time.sleep(1)
+    
+    return game
 
 if __name__ == "__main__":
-    print("Reading config...", end='\r')
-    print("Connecting to device...", end='\r')
-    print("Connecting to Discord...", end='\r')
-    rpc.connect()
-    
-    input("Press return when Arcaea is running...")
-    print("\033[FRunning main loop                     ")
+    print("Reading config...                                                ", end='\r')
+    print("Connecting to device...                                          ", end='\r')
+    while True:
+        print("Select a game...                                              ", end='\r')
+        game = getGame()
+        print("Connecting to Discord...                                         ", end='\r')
+        Discord.connect(game.id)
+
+        print("Running main loop                                                ", end='\r')
+        Discord.main(game)
