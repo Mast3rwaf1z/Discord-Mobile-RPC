@@ -1,5 +1,5 @@
 # Discord Mobile RPC
-Hi, this project is inspired by the fact that there isn't really a working lightweight solution to have mobile games running with RPC except having a samsung phone... The documentation of pypresence was pretty simple so i descided to make something of my own. This repo was also created as an answer to [this repository](https://github.com/chinosk6/Arcaea_Discord_Rich_Presence) being in chinese.
+Hi, this project is inspired by the fact that there isn't really a working lightweight solution to have mobile games running with RPC except having a samsung phone... The documentation of pypresence was pretty simple so i descided to make something of my own. This repo was also created as an answer to [this repository](https://github.com/chinosk6/Arcaea_Discord_Rich_Presence) being in chinese, although it does not have as many features.
 
 # Requirements
 This was developed on Arch Linux, here's a guide on how to get it running on any Arch Linux machine:
