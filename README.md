@@ -17,3 +17,6 @@ This is easy:
 
 # Pull requests
 If you wish to add more games to this repository, feel free to open a pull request, if more are added i might move the files to its own directory and load them automatically in the future. A new game should follow the example implementation in `Arcaea.py`, and be added to the switch in `run.py`.
+
+# Example
+<image src="https://cdn.discordapp.com/attachments/889964274229854248/1074850779233533952/image.png">
