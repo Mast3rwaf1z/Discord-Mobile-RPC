@@ -21,9 +21,11 @@ class Game:
     
     def updatePresence(self, presence:pypresence.Presence, startTime):
         presence.update(
-            state=self.getStatus(), 
+            details=f'{os.popen("adb devices -l | grep device").read().split("device:")[1].split(" ")[0]}', 
+            state=self.getStatus(),
             large_image=self.image,
-            start=int(startTime)
+            start=int(startTime),
+            buttons=[{"label":f"Get {self.displayName}", "url":self.url}]
         )
         return self.getStatus().lower()
 

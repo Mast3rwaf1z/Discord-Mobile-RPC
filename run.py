@@ -1,6 +1,6 @@
 #This is the main runner script
 #plan with this software is to be run in different configured modes, the type of adb integration will be defined here.
-#it can also be run through termux to have a whole on device setup, the install proceedure goes as follows on Arch Linux
+#the install proceedure goes as follows on Arch Linux
 
 # +---------+------------------------------+
 # | Step #1 | sudo pacman -S python        |
@@ -11,10 +11,14 @@
 # +---------+------------------------------+
 
 import os
+import time
+
 import Discord
 import Arcaea
 import ProjectSekai
-import time
+import Config
+
+config:dict = None
 
 def getGame():
     game = None
@@ -31,9 +35,20 @@ def getGame():
     
     return game
 
+def connectADB():
+    response = ""
+    if config["connection_type"] == "wireless":
+        response = os.popen(f'adb connect {config["ip"]}:{config["port"]}')
+    if response == f'connected to {config["ip"]}:{config["port"]}':
+        print("successfully connected to wireless device!               ", end="\r")
+
+
 if __name__ == "__main__":
     print("Reading config...                                                ", end='\r')
+    config = Config.read()
     print("Connecting to device...                                          ", end='\r')
+    connectADB()
+
     while True:
         print("Select a game...                                              ", end='\r')
         game = getGame()
