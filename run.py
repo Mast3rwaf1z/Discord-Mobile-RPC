@@ -46,14 +46,19 @@ def connectADB():
 if __name__ == "__main__":
     print("Reading config...                                                ", end='\r')
     config = Config.read()
-    print("Connecting to device...                                          ", end='\r')
-    connectADB()
+    import sys
+    if "--cli" in sys.argv:
+        print("Connecting to device...                                          ", end='\r')
+        connectADB()
 
-    while True:
-        print("Select a game...                                              ", end='\r')
-        game = getGame()
-        print("Connecting to Discord...                                         ", end='\r')
-        Discord.connect(game.id)
+        while True:
+            print("Select a game...                                              ", end='\r')
+            game = getGame()
+            print("Connecting to Discord...                                         ", end='\r')
+            Discord.connect(game.id)
 
-        print("Running main loop                                                ", end='\r')
-        Discord.main(game)
+            print("Running main loop                                                ", end='\r')
+            Discord.main(game)
+    else:
+        import gui
+        gui.run()
