@@ -12,7 +12,7 @@ pip install pypresence
 This is easy:
 
 1. clone this repository, 
-2. edit the config with the ip of your device if any (not required if your device is connected with a cable)
+2. edit the config with the ip, port and connection method of your device if any (not required if your device is connected with a cable)
 3. run `python run.py`
 
 # Pull requests
