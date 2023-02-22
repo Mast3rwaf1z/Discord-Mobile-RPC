@@ -54,8 +54,6 @@ if __name__ == "__main__":
         while True:
             print("Select a game...                                              ", end='\r')
             game = getGame()
-            print("Connecting to Discord...                                         ", end='\r')
-            Discord.connect(game.id)
 
             print("Running main loop                                                ", end='\r')
             Discord.main(game)
